@@ -1,0 +1,30 @@
+/** @format */
+
+@use "../abstract/variables" as *;
+
+.emby-button {
+	position: relative;
+	&[is="emby-button"]:not(.emby-tab-button),
+	&.raised[is="emby-linkbutton"]:not(.emby-tab-button) {
+		background: $accent1-light;
+		border-radius: 100vh;
+		overflow: hidden;
+
+		&:hover::after,
+		&:focus::after {
+			opacity: 1;
+		}
+	}
+	&.emby-collapsible-button {
+		box-shadow: none;
+		border: 0 !important;
+		background: transparent !important;
+		&::after {
+			display: none !important;
+		}
+	}
+}
+
+.paper-icon-button-light {
+	border-radius: $rounding-default;
+}

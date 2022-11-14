@@ -1,0 +1,28 @@
+/** @format */
+
+:root {
+	--accent1-light: hsl(357, 92%, 47%);
+	--accent1-dark: hsl(285, 35%, 21%);
+	--accent1-light-opacity1: hsla(285, 46%, 56%, 0.4);
+	--background-light: #141414;
+	--accent2-dark: hsl(195, 100%, 16%);
+}
+$background-dark: hsl(0, 0%, 8%);
+$background-darker: hsl(0, 0%, 2%);
+$background-gradient: linear-gradient(
+	45deg,
+	$background-darker,
+	$background-dark
+);
+$accent1-light: var(--accent1-light);
+$rounding-max: 20px;
+$rounding-default: 5px;
+$rounding--1: 8px;
+$rounding-min: 5px;
+$filter-blur-default: 10px;
+$filter-saturation-default: 110%;
+$filter-brightness-default: 70%;
+$filter-contrast-default: 130%;
+$transition-time-default: 250ms;
+$transition-time-fast-1: 150ms;
+// $accent: $jf-blue;

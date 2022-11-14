@@ -1,0 +1,57 @@
+/** @format */
+
+.layout-mobile #itemDetailPage {
+	.itemBackdrop {
+		display: block !important;
+	}
+	.parentName,
+	.parentNameLast {
+		display: block !important;
+		font-size: 1.6em !important;
+	}
+	.detailLogo:not(.hide) {
+		display: none !important;
+	}
+}
+
+body #itemDetailPage {
+	.itemBackdrop {
+		display: none !important;
+	}
+	.parentName,
+	.parentNameLast {
+		font-size: 0 !important;
+	}
+	.nameContainer .parentName {
+		a {
+			position: absolute;
+			top: 10vh;
+			left: 32.435vw;
+			border-radius: 0 !important;
+			width: 25vw;
+			height: 16vh;
+			font-size: 0;
+		}
+	}
+	.detailRibbon {
+		margin-top: 0vh;
+		height: fit-content;
+	}
+	.detailLogo:not(.hide) {
+		display: block !important;
+		position: static;
+		flex-shrink: 0;
+		flex-grow: 0;
+		margin-left: 32.425vw;
+		background-position: left;
+		margin-top: 10vh !important;
+	}
+	.detailLogo.hide
+		+ .detailPageWrapperContainer
+		> .detailPagePrimaryContainer {
+		margin-top: 10vh;
+		& > .infoWrapper > .nameContainer > .itemName {
+			display: block !important;
+		}
+	}
+}

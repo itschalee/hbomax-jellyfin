@@ -1,0 +1,32 @@
+/** @format */
+
+@use "../abstract/variables" as *;
+.backgroundContainer {
+	background-color: $background-dark !important;
+}
+.backdropContainer {
+	display: none;
+}
+.withTabs .content-primary {
+	padding-top: 1em !important;
+}
+
+.scrollY {
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		black 1em calc(100% - 1em),
+		transparent
+	);
+	-webkit-mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		black 1em calc(100% - 1em),
+		transparent
+	);
+	padding: 1em 0;
+}
+
+::selection {
+	background: $accent1-light;
+}

@@ -1,0 +1,51 @@
+/** @format */
+
+@use "../abstract/variables" as *;
+// myPreferencesMenuPage
+#myPreferencesMenuPage {
+	.listItem {
+		border-radius: $rounding-default;
+		transition: background $transition-time-default;
+		&:hover {
+			background: black;
+			.listItemIcon {
+				margin-right: 0.5em;
+			}
+		}
+		&-border {
+			border: none !important;
+		}
+		&Icon {
+			background: $accent1-light;
+			color: transparent;
+			background-clip: text;
+			-webkit-background-clip: text;
+			transition: margin-right $transition-time-default;
+		}
+	}
+}
+
+//dialog
+.dialog {
+	background: rgb(0 0 0 / 0.7);
+	box-shadow: none;
+	border-radius: $rounding-max !important;
+	overflow: hidden;
+	backdrop-filter: blur($filter-blur-default);
+	.smoothScrollY {
+		max-height: 100%;
+	}
+	.emby-button:not(.cardImageContainer, .actionSheetMenuItem) {
+		background: rgb(0 0 0 / 0) !important;
+		&::after {
+			all: unset !important;
+		}
+	}
+	.emby-button.actionSheetMenuItem {
+		background: transparent !important;
+		border-radius: 0 !important;
+	}
+	.cardText {
+		display: block !important;
+	}
+}

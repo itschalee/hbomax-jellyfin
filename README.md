@@ -1,90 +1,125 @@
-<div align="center">
-<h1>JellyFlix</h1>
-<h3>Looks, Feels and Smells like Netflix</h3>
-<h3>Netflix Theme for Jellyfin</h3>
-</div>
-<br>
-<h2>Usage:</h2>
-<h3> To use it, got to Setting ==> Dashboard ==> General and scroll down to custom css and paste the following line</h3>
+# JellySkin:
+### Vibrant, minimal, and sprinkled with tons of animations <br> CSS theme for Jellyfin
+  
+![npm (tag)](https://img.shields.io/npm/v/jellyskin/latest?style=for-the-badge) ![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hm/jellyskin?label=Downloads&style=for-the-badge) ![GitHub](https://img.shields.io/github/license/prayag17/JellySkin?style=for-the-badge) <br>
+![GitHub Repo stars](https://img.shields.io/github/stars/prayag17/JellySkin?style=social)
 
+#### Note: To take full experience of this CSS on FireFox scroll down below to find the necessary settings.
 
-<h3>Base Version:</h3>
-<h3>Auto Update: </h3>
+# Usage :information_source: :
+- To use the JellySkin theme copy the line below into "Dashboard -> General -> Custom CSS" and click save, it will apply immediately server-wide to all users on top of any theme they may be using. To remove the theme, clear the "Custom CSS" field and then click save. <b>NOTE: Theme may not work when using Nginx Reverse Proxy. Scroll down below to learn how to fix this.
 
-```css
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/default.css");
-```
-
-<h3>Custom  Version:</h3>
-
-```css
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@<version-number>/default.css");
-```
-
-<h3>With Logos(recommended):</h3>
-<h3>Auto Update:</h3>
-
-```css
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/default.css");
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/addons/Logo.css");
-```
-
-<h3>Custom Version:</h3>
-
-```css
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@<version-number>/default.css");
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@<version-number>/addons/Logo.css");
-```
-
-<br>
-<h3>You can also use Jellyfin colors instead of Netflix red </h3>
-Jellyfin-Blue:
-
-```css
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@9.0.4/addons/jf-blue.css");
-```
-Jellyfin-Purple:
-
-```css
-@import url("https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@9.0.4/addons/jf-purple.css");
-```
-
-
-<br>
-<div class="imagesCont">
-  <div class="Login">
-    <h3 align="center">Login</h3>
-    <img src="https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/img/Login.jpg">
-  </div>
-  <div class="home">
-    <h3 align="center">Home Page</h3>
-    <img src="https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/img/Home.jpg">
-  </div>  
-  <div class="lib">
-    <h3 align="center">Library</h3>
-    <img src="https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/img/Movies.jpg">
-    <img src="https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/img/TV%20Shows.jpg">
-  </div>
-  <div class="titleMov">
-    <h3 align="center">Movie Title Page</h3>
-    <img src="https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/img/Title%20Page-Movie.jpg">
-  </div>
-  <div class="titleTv">
-    <h3 align="center">TV Show Title page</h3>
-    <img src="https://cdn.jsdelivr.net/gh/prayag17/JellyFlix@latest/img/Title%20Page-TV.jpg">
-  </div>
-</div>
-<br>
-<div class="faq">
-<h2>The UI feels cluttered? try:</h2><h3>Use 67% zoom for better experience on PC</h3>
-</div>
-<br>
-<div class="note">
-  <h2>Note: If you want any things to be changed/added to this skin create and issue with 'Feature Request:' in front of it and I also want to make this skin to be supported by most of the devices, so create an issue if your device doesn't work properly with it. Please provide me the name of your device with it's type in this format-<br></h2>
-
+  ```css
+  @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/main.css");
   ```
-    Device-name: Your name
-    type: Mobile/TV (Laptop are all supported, use 67% zoom)
+
+- To enable Logos add this to custom css:
+  ```css
+  @import url("https://cdn.jsdelivr.net/npm/jellyskin@latest/dist/logo.css");
   ```
-</div>
-<br>
+  
+- You can also use Jellyfin-Skin-Manager-Plugin : https://github.com/danieladov/jellyfin-plugin-skin-manager
+
+# Addons :electric_plug: :
+- ## Improve Performance:
+    If you fix performace issues like stutter while normally browsing jellyfin while use JellySkin, try adding this to custom css to fix the issue:
+    
+    ```css
+    @import url("https://cdn.jsdelivr.net/npm/jellyskin@12.2.0/dist/addons/improvePerformance.css")
+    ```
+    
+    :warning: Note: This removes the background blur from dialogs, gradient scroll in and out "bars" and animated mesh gradient from login page (replaced by normal gradient animation)
+    
+- ## Compact Poster:
+    Want to use compact posters instead of normal cards, add this to you custom css:
+    
+    ```css
+    @import url("https://cdn.jsdelivr.net/npm/jellyskin@12.2.0/dist/addons/compactPosters.css");
+    ```
+    
+    Example:\
+    ![image](https://user-images.githubusercontent.com/55829513/200132447-5307c19f-97e5-4022-ab42-c5b8bf632d6b.png)
+
+- ## Using/Changing default gradient accent:
+    If you want want to change the default jellyfin gradient accent to some other preset gradient use:
+    
+    - ### Mauve
+      ```css
+      @import url("https://cdn.jsdelivr.net/npm/jellyskin@12.2.0/dist/addons/gradients/mauve.css");
+      ```
+      Example:\
+      ![image](https://user-images.githubusercontent.com/55829513/200132732-d188392a-5642-47f7-bb62-f204a85d992e.png)
+
+    - ### NightSky
+      ```css
+      @import url("https://cdn.jsdelivr.net/npm/jellyskin@12.2.0/dist/addons/gradients/nightSky.css");
+      ```
+      Example:\
+      ![image](https://user-images.githubusercontent.com/55829513/200132808-5b02c8e9-29c1-4a6b-ad3c-514588cf717a.png)
+
+    - ### Sea
+      ```css
+      @import url("https://cdn.jsdelivr.net/npm/jellyskin@12.2.0/dist/addons/gradients/sea.css");
+      ```
+      Example:\
+      ![image](https://user-images.githubusercontent.com/55829513/200132840-984deaf3-c228-4092-be8f-44c325d57782.png)
+      
+    - ### Custom:
+      If you need to add your own gradient use:
+      ```css
+      :root {
+        --accent1-light: YOUR ACCENT COLOR 1(LIGHTER SHADE);
+        --accent1-dark: YOUR ACCENT COLOR 1(DARKER SHADE);
+        --accent1-light-opacity1: YOUR ACCENT COLOR 1(WITH OPACITY 0.4);
+        --accent2-light: YOUR ACCENT COLOR 2(LIGHTER SHADE);
+        --accent2-dark: YOUR ACCENT COLOR 2(DARKER SHADE);
+      }
+      ```
+
+# Screenshot :framed_picture: :
+- ### Login Page:
+    ![loginPage](https://user-images.githubusercontent.com/55829513/200134094-9bafba9d-4cfa-48c3-bbf4-e01bc21ecdd1.png)
+
+- ### Home Screen:
+    ![Home Screen](https://user-images.githubusercontent.com/55829513/200134098-6463a6e7-95bb-4af6-a451-b6ac5ef7abad.png)
+
+- ### Library View:
+    ![LibView](https://user-images.githubusercontent.com/55829513/200133209-413d6e6c-3569-4aaf-9db7-f576c141f519.png)
+    
+- ### Title Screen:
+    ![TitleView](https://user-images.githubusercontent.com/55829513/200133240-075f604d-ae7f-48cb-9a42-445d8f3ef427.png)
+
+- ### Episode View:
+    ![EpisodeView](https://user-images.githubusercontent.com/55829513/200133258-4eabfc3d-475f-4b42-a496-bc2de60c11a5.png)
+
+- ### Settings:
+    ![SettingsView](https://user-images.githubusercontent.com/55829513/200133273-3ff7ba73-bad2-4f7c-88b1-e8298d246587.png)
+
+- ### Dashboard:
+    ![DashboardView](https://user-images.githubusercontent.com/55829513/200133302-5d7e7ac1-201b-4cb4-a839-ee53c5c6a6f2.png)
+
+- ### Dialog:
+    ![DialogView](https://user-images.githubusercontent.com/55829513/200133331-ee7838d0-6318-4175-b969-c06647bf65a0.png)
+
+# Common Problem Fixes :question: :
+- ### Unable to see blured background in Firefox:
+  Deaktiviert From version 70: this feature is behind the `layout.css.backdrop-filter.enabled` preference (needs to be set to true) and the `gfx.webrender.all`  preference (needs to be set to true).
+  To change preferences in Firefox, visit about:config
+  
+- ### Logos are not visible even with `logo.css`:
+  - Get Fanart Plugin, Dashboard -> Plugin -> Catalog
+  - Enable Fanart as a metadata provider for your libraries in the library settings, Dashboard -> Library -> Click on 3 dots on your Library -> Manage Library -> Scroll to find Metadata provider and enable Fanart in all of them.
+  - Rescan your drive and also enable `Replace Metadata` and scan
+
+- ### Background not visible:
+  - Go to Seetiing -> Display -> and enable `Backdrops` option
+
+- ### How to report a Bug or request a Feature?
+  - Go to https://github.com/prayag17/JellySkin/issues
+  - Click on `New Issue` button
+  - Select the appropriate template
+
+- ### How to contribute:
+  - Fork this repository.
+  - Add your patch/feature
+  - Create a pull request and thats it

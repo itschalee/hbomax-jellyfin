@@ -1,0 +1,40 @@
+/** @format */
+
+@use "../abstract/variables" as *;
+.mainDrawer {
+	background: rgb(0 0 0 / 0.5);
+	backdrop-filter: blur(0);
+	&.drawer-open {
+		backdrop-filter: blur($filter-blur-default);
+		.scrollContainer {
+			mask-image: linear-gradient(
+				to top,
+				transparent,
+				black 0.5em calc(100% - 0.5em),
+				transparent
+			);
+			-webkit-mask-image: linear-gradient(
+				to top,
+				transparent,
+				black 0.5em calc(100% - 0.5em),
+				transparent
+			);
+		}
+	}
+	.navMenuOption {
+		.navMenuOptionIcon {
+			transition: margin-right $transition-time-fast-1 linear;
+		}
+		&-selected {
+			background: $accent1-light !important;
+		}
+		&:hover {
+			.navMenuOptionIcon {
+				margin-right: 1.46em;
+			}
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+}

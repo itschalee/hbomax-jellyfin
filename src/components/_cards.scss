@@ -1,0 +1,213 @@
+/** @format */
+
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.emby-scroller {
+	overflow: visible !important;
+	&:has(.card:hover) .card {
+		--brightness: 0.5;
+		--blur: 5px;
+	}
+}
+.card {
+	--brightness: 1;
+	--blur: 0px;
+	contain: none !important;
+	transform: scale(1);
+	transition: transform $transition-time-fast-1,
+		filter $transition-time-fast-1;
+	z-index: 1;
+	filter: brightness(var(--brightness)) blur(var(--blur));
+
+	&:hover,
+	&:focus-visible {
+		--brightness: 1 !important;
+		--blur: 0px !important;
+		transform: scale(1.2);
+		z-index: 2;
+
+		.cardText {
+			opacity: 1;
+		}
+	}
+
+	&[data-type="Episode"] .cardText {
+		opacity: 1 !important;
+	}
+	&.overflowSquareCard {
+		.cardText {
+			opacity: 1 !important;
+		}
+		.cardScalable {
+			aspect-ratio: 1;
+		}
+		.cardImageContainer {
+			&::after {
+				background-size: contain !important;
+			}
+		}
+	}
+
+	&Text {
+		opacity: 0;
+		transition: opacity $transition-time-fast-1;
+	}
+
+	// &.overflowBackdropCard .cardScalable {
+	// 	aspect-ratio: auto;
+	// }
+	&OverlayContainer {
+		background: rgb(0 0 0 / 0.7);
+	}
+	&ImageIcon {
+		@include cardIcon();
+	}
+	&Scalable {
+		position: relative;
+		aspect-ratio: auto;
+		overflow: visible;
+		contain: none !important;
+		& > * {
+			border-radius: $rounding-default !important;
+			width: 100%;
+			box-shadow: none !important;
+		}
+	}
+
+	&[data-type="Person"] {
+		@include actorCard("Person");
+		&:hover .cardContent {
+			filter: brightness(0.3);
+		}
+	}
+	&[data-type="Actor"] {
+		@include actorCard("Actor");
+		&:hover .cardContent {
+			filter: brightness(0.3);
+		}
+	}
+	&Box {
+		margin: 0.5em !important;
+		box-shadow: none;
+		background: rgb(0 0 0 / 0);
+		overflow: hidden;
+		transition: background $transition-time-fast-1;
+		border-radius: $rounding-default;
+	}
+	&:not([data-type="Person"]) .cardText-secondary {
+		padding-bottom: 0.5em;
+	}
+	&:hover .cardBox,
+	&:focus-visible .cardBox {
+		background: rgb(0 0 0 / 0.5);
+	}
+	&.squareCard .cardScalable {
+		width: 100%;
+		aspect-ratio: 1;
+	}
+}
+.cardPadder {
+	background: $background-darker !important;
+	&-square {
+		aspect-ratio: 0 !important;
+		padding: 0;
+	}
+	&-square + div {
+		aspect-ratio: 1;
+	}
+}
+.cardImageContainer {
+	overflow: visible !important;
+	contain: none !important;
+	border-radius: $rounding-default;
+	&.defaultCardBackground {
+		background: transparent;
+	}
+}
+.innerCardFooter {
+	width: 90%;
+	margin-bottom: -5%;
+	margin-left: auto;
+	margin-right: auto;
+	transition: margin-bottom $transition-time-default;
+	border-radius: $rounding-default;
+	.itemProgressBar {
+		background: $background-dark;
+		height: 0.2em;
+		.itemProgressBarForeground {
+			background: $accent1-light;
+		}
+	}
+}
+
+.card:hover .innerCardFooter {
+	margin-bottom: 5%;
+}
+.cardOverlayContainer {
+	display: flex;
+	flex-flow: column;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.cardOverlayButton {
+	border-radius: $rounding-min;
+	span {
+		background: white !important;
+		background-clip: text !important;
+		-webkit-background-clip: text !important;
+		transition: $transition-time-fast-1;
+	}
+	&[data-action="resume"] {
+		border-radius: $rounding-min;
+		padding: 1.5em;
+		background: transparent !important;
+	}
+	&:hover span,
+	&:focus-visible span {
+		color: transparent !important;
+	}
+}
+.cardIndicators,
+.listItemIndicators {
+	@include indicator();
+}
+[data-isfolder="true"][data-type="CollectionFolder"]:not([data-type="Series"])
+	.cardText {
+	padding: 0.75em !important;
+}
+[data-collectiontype="livetv"] .cardText {
+	padding: 0.75em !important;
+}
+.cardText:nth-child(4) {
+	display: none;
+}
+.defaultCardBackground {
+	background: $background-dark !important;
+}
+.chapterCard .innerCardFooter {
+	backdrop-filter: blur(5px);
+	background: rgb(0 0 0 / 0.6);
+	border-radius: 0 1em 1em 0 !important;
+}
+
+.layout-mobile .cardOverlayButton {
+	width: fit-content;
+	background: rgb(0 0 0 / 0.5);
+	backdrop-filter: blur(5px);
+	border-radius: $rounding-default !important;
+	bottom: 10px;
+	right: 10px;
+}
+.devicesList {
+	.cardScalable {
+		aspect-ratio: 16/9;
+	}
+	.cardPadder {
+		display: none;
+	}
+}
