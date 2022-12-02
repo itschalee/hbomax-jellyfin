@@ -31,7 +31,7 @@
 		}
 		&Content {
 			filter: brightness(1);
-			transition: filter $transition-time-default ease-in-out;
+			transition: filter $transition-time-fast-1 ease-in-out;
 		}
 		&Scalable {
 			aspect-ratio: 1/1;
@@ -55,6 +55,7 @@
 			}
 		}
 		&Text {
+			z-index: 1;
 			@if $type == Person {
 				&-first {
 					position: absolute;

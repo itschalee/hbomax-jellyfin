@@ -30,7 +30,7 @@
 		left: 3.3%;
 		top: calc(50% + 1em);
 		width: 25vw;
-		transform: translateY(-50%);
+		transform: translateY(-50%) !important;
 		border-radius: $rounding-default;
 	}
 	.detailPageWrapperContainer {

@@ -5,35 +5,56 @@
 
 .emby-scroller {
 	overflow: visible !important;
-	&:has(.card:hover) .card {
-		--brightness: 0.5;
-		--blur: 5px;
+
+	@supports selector(:has(a, b)) {
+		&:has(.card:hover),
+		&:has(.card:focus-visible) {
+			.card {
+				--brightness: 0.5;
+				&:hover ~ .card {
+					transform: translateX(10%) !important;
+				}
+				transform: translateX(-10%);
+			}
+		}
+		$cardTypes: "Movie", "Series";
+		@each $cardType in $cardTypes {
+			&-container:has(.card[data-type="#{$cardType}"]) ~ &-container {
+				transform: translateY(-4em);
+			}
+			&-container:has(.card:hover) ~ &-container,
+			&-container:has(.card:focus-visible) ~ &-container {
+				z-index: -1;
+			}
+		}
 	}
 }
 .card {
 	--brightness: 1;
-	--blur: 0px;
 	contain: none !important;
 	transform: scale(1);
 	transition: transform $transition-time-fast-1,
 		filter $transition-time-fast-1;
+	transform-origin: center;
 	z-index: 1;
-	filter: brightness(var(--brightness)) blur(var(--blur));
+	filter: brightness(var(--brightness));
 
 	&:hover,
 	&:focus-visible {
 		--brightness: 1 !important;
-		--blur: 0px !important;
-		transform: scale(1.2);
-		z-index: 2;
+		transform: scale(1.2) !important;
+		z-index: 20;
 
 		.cardText {
 			opacity: 1;
 		}
 	}
 
-	&[data-type="Episode"] .cardText {
-		opacity: 1 !important;
+	$cardTypes: "Episode", "CollectionFolder", "UserView", "Actor";
+	@each $cardType in $cardTypes {
+		&[data-type="#{$cardType}"] .cardText {
+			opacity: 1 !important;
+		}
 	}
 	&.overflowSquareCard {
 		.cardText {
@@ -100,7 +121,7 @@
 	}
 	&:hover .cardBox,
 	&:focus-visible .cardBox {
-		background: rgb(0 0 0 / 0.5);
+		background: rgb(0 0 0);
 	}
 	&.squareCard .cardScalable {
 		width: 100%;
