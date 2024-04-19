@@ -122,7 +122,6 @@ span.material-icons.checkboxIcon.checkboxIcon-checked.check {
 }
 
 .osdControls .flex.flex-direction-row.align-items-center {
-  display: grid;
   grid-template-areas: "one two" "three three";
 }
 
@@ -212,7 +211,7 @@ div#itemBackdrop::after {
   position: relative;
   width: 60vw;
   background: transparent;
-  min-height: 70vh;
+  min-height: 25vh;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -385,7 +384,7 @@ div#itemBackdrop::after {
   z-index: -1;
   background: transparent !important;
   height: 100vh !important;
-  width: 100vw !important;
+  width: 50vw !important;
   padding: 0 !important;
 }
 
@@ -395,7 +394,7 @@ div#itemBackdrop::after {
 
 .layout-mobile .mainDetailButtons {
   z-index: 1;
-  margin: 0 5vw;
+  margin: 6vh 2vh 0vh 2vh;
   flex-flow: row;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -509,8 +508,12 @@ div#itemBackdrop::after {
   justify-content: flex-start;
   align-content: flex-end;
   margin-top: 0 !important;
-  height: 100vh !important;
+  height: 55vh !important;
   z-index: 1;
+}
+
+.layout-mobile .infoWrapper {
+  padding: 5vh 2vh 0vh 2vh;
 }
 
 .layout-mobile .detailPageWrapperContainer > * {
@@ -2377,3 +2380,19 @@ body:not(.withSectionTabs) > .osdHeader:not(.osdHeader-hidden)
 }
 
 /*#endregion*/
+
+/* Spinner */
+
+.mdl-spinner__layer.mdl-spinner__layer-1.mdl-spinner__layer-1-active,
+.mdl-spinner__layer.mdl-spinner__layer-2.mdl-spinner__layer-2-active, 
+.mdl-spinner__layer.mdl-spinner__layer-3.mdl-spinner__layer-3-active, 
+.mdl-spinner__layer.mdl-spinner__layer-4.mdl-spinner__layer-4-active {
+  border-color: var(--accent);
+}
+
+
+/* TV Guide Scrolling */
+
+.programContainer.emby-scroller {
+    overflow: auto!important;
+}
