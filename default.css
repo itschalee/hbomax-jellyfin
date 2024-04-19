@@ -3,7 +3,7 @@
 
 :root {
   --deftraback: rgb(102 52 153 / 36%) !important;
-  --rounding: 3px;
+  --rounding: 10px;
   --accent: #663399;
 }
 
@@ -1013,6 +1013,7 @@ label.selectLabel {
 
 .cardBox {
   background: transparent !important;
+  border-radius: var(--rounding);
   box-shadow: none;
   overflow: hidden;
   transition: all 0.15s;
