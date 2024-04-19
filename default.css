@@ -2253,6 +2253,134 @@ div:not(.paperList) .listItem {
 }
 
 
+/* ======================== */
+/* ===== Netflix-isms =============== */
+/* ============================================ */
+
+
+/* This was a fucking treck to find. It's the simplest HTML I could find between a Season and a Series page in ordr to distinguish between the two. 
+  This will stop Seasons from having a gap above them akin to the Netflix-esque gap on Series pages.
+  This line has also been updated with movies in mind, since they break the same way.
+  It makes use of the More Like This field which should automatically always have other shows in it
+  if it's an actual Series/Film page and not a Season page */
+.detailPageContent:has(#similarCollapsible.hide) .detailPagePrimaryContent
+{
+  min-height: unset !important;
+}
+
+/* Netflix-ise Section Headers */
+.sectionTitleTextButton { width: fit-content; }
+.sectionTitle { display: inline-block; }
+.sectionTitle+span::before 
+{ 
+  opacity: 0;
+  margin-left: -20px;
+
+  font-size:10pt;
+
+  transition: 200ms ease-in-out; 
+}
+.sectionTitleTextButton:hover span::before 
+{ 
+  content: "Explore all";
+  font-family: "Netflix Sans", sans-serif !important;
+  margin-left: 5px;
+
+  width: fit-content;
+  opacity: 1; 
+}
+.sectionTitleTextButton:hover span::after
+{ 
+  content: "\e5cc";
+  font-size:14pt;
+  font-weight: 1000;
+  position: relative;
+  top: 3px;
+
+  opacity: 1; 
+}
+.sectionTitleTextButton>.material-icons { color: #54b9c5; }
+
+/* Bring Video Title into bottom bar (like Netflix) */
+body:has(.videoPlayerContainer) .pageTitle,
+body:has(.videoPlayerContainer) .osdTimeText /* Offset the Ends At time to below the Title */
+{
+  position: fixed;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 2;
+
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+
+  font-weight: 600;
+}
+body:has(.videoPlayerContainer) .osdTimeText { bottom: 1.5vh; font-weight: 200; } /* Shift the Ends At time down */
+/* Re-align OSD controls */
+body:has(.videoPlayerContainer) .osdTimeText ~ * { margin-left: auto; }
+body:has(.videoPlayerContainer) .osdTimeText ~ *:not(.hide) ~ * { margin: unset !important; }
+/* Add spaces to the oether side of the Ends At time */
+body:has(.videoPlayerContainer) .osdTimeText span::after { content: "   "; } 
+/* Stops the Title from jumping up and down from top to bottom when the OSDs hide*/
+body:not(.withSectionTabs) > .osdHeader { contain: unset; }
+
+/* Fix OSD top header BG on video playback */
+body:not(.withSectionTabs) > .osdHeader:not(.osdHeader-hidden)
+{
+  position: absolute;
+  background: linear-gradient(to bottom, #0009, #0000) !important;
+}
+
+/* Netflix-like on-screen display */
+.iconOsd
+{
+  /* This centre-ises the OSD volume control thing, which is more Netflix-like, but lasts too long to be accurate or nice to use on Jellyfin   
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%); 
+  */
+
+  background: #000a;
+  outline: 15px solid #0008;
+
+  height: 100px;
+  width: 100px;
+
+  border-radius: 50%;
+}
+.iconOsdIcon
+{
+    display: flex;
+    justify-content: center;
+}
+
+/* Make Volume slider that appears on hotkey press match theme */
+.iconOsdProgressInner
+{
+  background: #e50914;
+  border-radius: 0;
+}
+
+
+/* ================ */
+/* ===== Misc ========== */
+/* ========================== */
+
+/* MAL-Sync support, for funsies */
+#malp { padding-left: 1.6em; }
+
+.layout-mobile #malp
+{
+  max-width: unset;
+  width: 100vw;
+  padding: 0 5vw;
+}
+
+/*#endregion*/
+
 /* Spinner */
 
 .mdl-spinner__layer.mdl-spinner__layer-1.mdl-spinner__layer-1-active,
