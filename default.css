@@ -2248,3 +2248,9 @@ div:not(.paperList) .listItem {
 .chapterCard .innerCardFooter > .cardText:last-child {
   float: right;
 }
+
+/* TV Guide Scrolling */
+
+.programContainer.emby-scroller {
+    overflow: auto!important;
+}
