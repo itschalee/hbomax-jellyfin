@@ -384,7 +384,7 @@ div#itemBackdrop::after {
   z-index: -1;
   background: transparent !important;
   height: 100vh !important;
-  width: 100vw !important;
+  width: 50vw !important;
   padding: 0 !important;
 }
 
@@ -394,7 +394,7 @@ div#itemBackdrop::after {
 
 .layout-mobile .mainDetailButtons {
   z-index: 1;
-  margin: 0 5vw;
+  margin: 6vh 2vh 0vh 2vh;
   flex-flow: row;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -508,8 +508,12 @@ div#itemBackdrop::after {
   justify-content: flex-start;
   align-content: flex-end;
   margin-top: 0 !important;
-  height: 100vh !important;
+  height: 55vh !important;
   z-index: 1;
+}
+
+.layout-mobile .infoWrapper {
+  padding: 5vh 2vh 0vh 2vh;
 }
 
 .layout-mobile .detailPageWrapperContainer > * {
